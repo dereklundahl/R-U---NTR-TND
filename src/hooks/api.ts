@@ -1,12 +1,11 @@
 import React from 'react';
 
-interface Planet {
+export interface PlanetInterface {
     name: string;
-    diameter: string;
 }
 
 interface PlanetsResult {
-    results: Planet[]
+    results: PlanetInterface[]
 }
 
 interface Person {
@@ -26,8 +25,9 @@ const useFetch = <T extends object>(url: string) => {
     return fetchUrl;
 }
 
-export const usePlanets = (): [Planet[] | undefined, () => Promise<void>] => {
-    const [planets, setPlanets] = React.useState<Planet[]>();
+// plannets
+export const usePlanets = (): [PlanetInterface[] | undefined, () => Promise<void>] => {
+    const [planets, setPlanets] = React.useState<PlanetInterface[]>();
     const fetchUrl = useFetch<PlanetsResult>('https://swapi.dev/api/planets/')
     const fetchPlanets = React.useCallback(async () => {
         const result = await fetchUrl()
@@ -41,12 +41,13 @@ export const usePlanets = (): [Planet[] | undefined, () => Promise<void>] => {
     ]
 }
 
-export const usePeople = (): [PeopleResult | undefined, () => Promise<void>] => {
-    const [people, setPeople] = React.useState();
+// people
+export const usePeople = (): [Person[] | undefined, () => Promise<void>] => {
+    const [people, setPeople] = React.useState<Person[]>();
     const fetchUrl = useFetch<PeopleResult>('https://swapi.dev/api/people/');
     const fetchPeople = React.useCallback(async () => {
-
-       setPeople(await fetchUrl());
+        const result = await fetchUrl()
+       setPeople(result.results);
     }, [setPeople, fetchUrl]);
     return [
         people,
@@ -54,9 +55,8 @@ export const usePeople = (): [PeopleResult | undefined, () => Promise<void>] => 
     ]
 }
 
-const add = <T extends string | number>(a: T, b: T) => a + b;
+// films
+// Species
+// Vehicles
+// Starships
 
-
-
-add(5, 2);
-add('derek', 'is cool');

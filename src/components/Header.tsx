@@ -2,7 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import NavBar from './NavBar';
 
-const Header = () => {
+export interface HeaderProps {}
+
+const Header: React.FC<HeaderProps> = () => {
     return (
         <View style={styles.Header}>
             <View style={styles.HeaderTitle}>
@@ -26,11 +28,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         fontSize: 20,
         fontWeight: "bold",
+        color: "#f0ebeb"
     },
     HeaderTitle: {
         alignItems: 'center',
         justifyContent: 'center',
         paddingVertical: 15,
+        backgroundColor: "#997f7d"
     }
 })
 

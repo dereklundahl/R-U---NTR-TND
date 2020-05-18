@@ -1,24 +1,25 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { PlanetInterface } from '../hooks/api';
 
-export interface PlanetProps extends PlanetInterface {}
+export interface PersonProps {
+    name: string;
+}
 
-const Planet: React.FC<PlanetProps> = ({
+const Person: React.FC<PersonProps> = ({
     name,
 }) => {
     return (
-        <View style={styles.container}>
+        <View style={styles.constainer}>
             <Text>{name}</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+    constainer: {
         marginVertical: 10,
     }
 })
 
 
-export default Planet;
+export default Person;
