@@ -14,19 +14,32 @@ export default function App() {
 
   // find a place to use enums as well
 
-  const [isSelected, setIsSelected] = React.useState(false);
+  // const [isSelected, setIsSelected] = React.useState("people");
 
-  const renderList = React.useMemo(() => {
+  // const viewSelected = React.useCallback(() => {
 
-  }, [])
+  // }, [setSelected])
+
+  // const renderList = React.useMemo(() => {
+  //   switch (isSelected) {
+  //     case "people":
+  //       return <People />
+  //     case "planets":
+  //       return <Planets />
+  //     default:
+  //       return <People />
+  //   }
+  // }, [isSelected])
+
+
 
   return (
     <View style={styles.container}>
       <Header />
       <ScrollView>
         <View style={styles.body}>
+          {/* {renderList} */}
           <People />
-          <Planets />
         </View>
       </ScrollView>
     </View>
