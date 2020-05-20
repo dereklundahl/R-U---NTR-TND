@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { usePlanets } from '../hooks/api';
-import Planet from './Planet';
+import ListItem from './ListItem';
 
 const Planets = () => {
 
@@ -19,7 +19,7 @@ const Planets = () => {
         <View style={styles.planets}>
             <Text style={styles.header}>Planets</Text>
             {planets.map(planet => (
-                <Planet
+                <ListItem
                     key={planet.name}
                     name={planet.name}
                 />

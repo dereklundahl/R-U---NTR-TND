@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { usePeople } from '../hooks/api';
-import Person from './Person';
+import ListItem from './ListItem';
 
 const People = () => {
 
@@ -19,7 +19,7 @@ const People = () => {
         <View style={styles.People}>
             <Text style={styles.header}>People</Text>
             {people.map(person => (
-                <Person
+                <ListItem
                     key={person.name}
                     name={person.name}
                 />

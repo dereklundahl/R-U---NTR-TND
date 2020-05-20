@@ -2,9 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import NavBar from './NavBar';
 
-export interface HeaderProps {}
+export interface HeaderProps {
+    setCategory: (id: string) => void,
+    isSelected: string
+}
 
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<HeaderProps> = ({ setCategory, isSelected }) => {
     return (
         <View style={styles.Header}>
             <View style={styles.HeaderTitle}>
@@ -13,7 +16,7 @@ const Header: React.FC<HeaderProps> = () => {
                 </Text>
             </View>
             <View>
-                <NavBar />
+                <NavBar setCategory={setCategory} isSelected={isSelected}/>
             </View>
         </View>
     );

@@ -2,13 +2,14 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { PlanetInterface } from '../hooks/api';
 
-export interface PlanetProps extends PlanetInterface {}
+export interface ListItem { name: string, key: string}
 
-const Planet: React.FC<PlanetProps> = ({
+const ListItem: React.FC<ListItem> = ({
     name,
+    key
 }) => {
     return (
-        <View style={styles.container}>
+        <View style={styles.container} key={key}>
             <Text>{name}</Text>
         </View>
     );
@@ -21,4 +22,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default Planet;
+export default ListItem;

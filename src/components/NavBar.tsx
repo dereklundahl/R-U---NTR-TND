@@ -2,47 +2,57 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import { HeaderProps } from './Header';
 
-export interface NavBarProps {}
+export interface NavBarProps {
+    setCategory: (category: string) => void,
+    isSelected: string
+}
 
-const NavBar: React.FC<NavBarProps> = () => {
+const NavBar: React.FC<NavBarProps> = ({ setCategory, isSelected }) => {
 
-    const [isSelected, setIsSelected] = React.useState(false);
+    // Not sure if this makes sense here but I thought using tuples would be good
+    const options: [number, string][] = [
+        [1, "People"],
+        [2, "Planets"],
+        [3, "Films"],
+        [4, "Species"],
+        [5, "Vehicles"],
+        [6, "Starships"]
+    ]
 
-    const toggleSelected = React.useCallback(() => {
-        setIsSelected(!isSelected)
-    }, [isSelected, setIsSelected])
-
+    // Another use memo example
+    const navBarList = React.useMemo(() => {
+        return (
+            options.map((option) => (
+                <TouchableOpacity
+                    key={option[0]}
+                    onPress={() => setCategory(option[1])}
+                >
+                    <Text
+                        style={(isSelected === option[1]) ?
+                            Styles.Selected :
+                            Styles.NotSelected}
+                    >
+                        {option[1]} /
+                    </Text>
+                </TouchableOpacity>
+            ))
+        )
+    }, [options])
 
     return (
-        <View style={styles.NavBar}>
-            <TouchableOpacity onPress={toggleSelected}>
-                <Text style={isSelected ? styles.Selected : styles.NotSelected}> People /</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={toggleSelected}>
-                <Text style={isSelected ? styles.Selected : styles.NotSelected}> Planets /</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Text style={isSelected ? styles.Selected : styles.NotSelected}> Films /</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Text style={isSelected ? styles.Selected : styles.NotSelected}> Species /</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Text style={isSelected ? styles.Selected : styles.NotSelected}> Vehicles /</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Text style={isSelected ? styles.Selected : styles.NotSelected}> Starships</Text>
-            </TouchableOpacity>
+        <View style={Styles.NavBar}>
+            {navBarList}
         </View>
     );
 }
 
-const styles = StyleSheet.create({
+const Styles = StyleSheet.create({
     NavBar: {
         flexDirection: "row",
     },
     Selected: {
         fontWeight: "bold",
+        textDecorationLine: "underline"
     },
     NotSelected: {
         fontWeight: "normal"
