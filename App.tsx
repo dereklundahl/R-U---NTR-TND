@@ -17,12 +17,14 @@ export default function App() {
   useState(DONE),
   useMemo(DONE),
   useCallback(DONE),
+  useEffect(DONE),
   Render components based on what button is clicked in the nav bar
-  use a memoized if or switch statement
+  use a memoized if or switch statement(DONE)
   use a custom hook (DONE)
   */
 
-  // find a place to use enums as well
+  // find a place to use enums as well (Didn't find something that would fit)
+  // Maybe when I hook up navigation or refactor api to be DRY
 
   const [isSelected, setIsSelected] = React.useState("people");
 
