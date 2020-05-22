@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { PlanetInterface } from '../hooks/api';
 
 export interface ListItem { name: string, key: string}
 
@@ -10,7 +9,7 @@ const ListItem: React.FC<ListItem> = ({
 }) => {
     return (
         <View style={styles.container} key={key}>
-            <Text>{name}</Text>
+            <Text style={styles.text}>{name}</Text>
         </View>
     );
 }
@@ -18,6 +17,9 @@ const ListItem: React.FC<ListItem> = ({
 const styles = StyleSheet.create({
     container: {
         marginVertical: 10,
+    },
+    text: {
+        color: '#ffffff'
     }
 })
 

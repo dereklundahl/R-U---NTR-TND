@@ -7,6 +7,9 @@ import Films from './src/components/Films';
 import Species from './src/components/Species';
 import Vehicles from './src/components/Vehicles';
 import Starships from './src/components/Starships';
+import QuoteGenerator from './src/components/QuoteGenerator';
+import { useRandomQuote } from './src/hooks/util';
+import { quotes } from './src/components/QuoteGenerator';
 
 export default function App() {
 
@@ -48,6 +51,12 @@ export default function App() {
     }
   }, [isSelected])
 
+  const [quote, generateQuote] = useRandomQuote();
+
+  React.useEffect(() => {
+    generateQuote(quotes)
+  }, [renderList])
+
   return (
     <View style={styles.container}>
       <Header setCategory={setCategory} isSelected={isSelected} />
@@ -55,6 +64,7 @@ export default function App() {
         <View style={styles.body}>
           {renderList}
         </View>
+        <QuoteGenerator quote={quote} />
       </ScrollView>
     </View>
   );
@@ -65,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    backgroundColor: "#f0ebeb"
+    backgroundColor: "#000000"
   },
   body: {
     flexDirection: 'row',

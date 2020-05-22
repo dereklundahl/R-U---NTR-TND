@@ -1,19 +1,15 @@
 import React from 'react';
 
-interface QuoteInterface {
-    quotes: string[]
-}
 
-const getQuoteIndex: string = ()
-
-export const useRandomQuote = (): [QuoteInterface | undefined] => {
+// custom hook example
+export const useRandomQuote = (): [string, ([]) => void] => {
+    const randomIndex = Math.floor((Math.random() * 23) + 1);
     const [quote, setQuote] = React.useState('');
-    const quoteIndex = React.useCallback(() => {
-        Math.floor((Math.random() * 4) + 1);
-        setQuote(quotes[quoteIndex]);
-    }, [setQuote, quotes])
+    const generateQuote = React.useCallback((quotes) => {
+        setQuote(quotes[randomIndex]);
+    }, [setQuote])
     return [
         quote,
-        getQuote
+        generateQuote
     ]
 }

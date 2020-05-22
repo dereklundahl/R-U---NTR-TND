@@ -15,8 +15,7 @@ const Starships = () => {
 
     return (
         <View style={styles.films}>
-            {console.log('species', starships)}
-            <Text style={styles.header}>Species</Text>
+            <Text style={styles.header}>Starships</Text>
             {starships.map(starship => (
                 <>
                 <ListItem
@@ -34,6 +33,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     header: {
+        color: "#ffffff",
         fontWeight: "bold",
         textDecorationLine: "underline"
     }

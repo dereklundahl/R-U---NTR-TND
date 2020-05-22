@@ -22,7 +22,7 @@ const Films = () => {
                     key={film.title}
                     name={film.title}
                 />
-                <Text>{film.opening_crawl}</Text>
+                {/* <Text>{film.opening_crawl}</Text> */}
                 </>
             ))}
         </View>
@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     header: {
+        color: "#ffffff",
+
         fontWeight: "bold",
         textDecorationLine: "underline"
     }

@@ -52,10 +52,13 @@ const Styles = StyleSheet.create({
     },
     Selected: {
         fontWeight: "bold",
-        textDecorationLine: "underline"
+        textDecorationLine: "underline",
+        color: "#ffffff"
     },
     NotSelected: {
-        fontWeight: "normal"
+        fontWeight: "normal",
+        color: "#ffffff"
+
     }
 })
 

@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ setCategory, isSelected }) => {
                     Star Wars Stuff
                 </Text>
             </View>
-            <View>
+            <View style={styles.NavBarBorder}>
                 <NavBar setCategory={setCategory} isSelected={isSelected}/>
             </View>
         </View>
@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ setCategory, isSelected }) => {
 
 const styles = StyleSheet.create({
     Header: {
-        paddingVertical: 40,
+        paddingVertical: 20,
     },
     HeaderText: {
         alignItems: 'center',
@@ -37,7 +37,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingVertical: 15,
-        backgroundColor: "#997f7d"
+        backgroundColor: "#737373"
+    },
+    NavBarBorder: {
+        paddingVertical: 5,
+        borderBottomWidth: 5,
+        borderBottomColor: '#737373'
     }
 })
 

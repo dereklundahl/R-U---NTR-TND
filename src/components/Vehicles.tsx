@@ -15,7 +15,6 @@ const Vehicles = () => {
 
     return (
         <View style={styles.films}>
-            {console.log('species', vehicles)}
             <Text style={styles.header}>Vehicles</Text>
             {vehicles.map(vehicle => (
                 <>
@@ -34,6 +33,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     header: {
+        color: "#ffffff",
         fontWeight: "bold",
         textDecorationLine: "underline"
     }

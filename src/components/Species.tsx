@@ -15,7 +15,6 @@ const Species = () => {
 
     return (
         <View style={styles.films}>
-            {console.log('species', species)}
             <Text style={styles.header}>Species</Text>
             {species.map(spec => (
                 <>
@@ -34,6 +33,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     header: {
+        color: "#ffffff",
         fontWeight: "bold",
         textDecorationLine: "underline"
     }
