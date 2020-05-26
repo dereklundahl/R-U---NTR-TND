@@ -8,23 +8,20 @@ import Species from './src/components/Species';
 import Vehicles from './src/components/Vehicles';
 import Starships from './src/components/Starships';
 import QuoteGenerator from './src/components/QuoteGenerator';
-import { useRandomQuote } from './src/hooks/util';
+import { useRandomQuote, useRandomIndex } from './src/hooks/generateQuote';
 import { quotes } from './src/components/QuoteGenerator';
 
 export default function App() {
 
   /* demonstrate:
-  useState(DONE),
-  useMemo(DONE),
-  useCallback(DONE),
-  useEffect(DONE),
-  Render components based on what button is clicked in the nav bar
-  use a memoized if or switch statement(DONE)
-  use a custom hook (DONE)
+  install jest
+  add some unit tests to components
+  if time, test hooks as well
   */
 
-  // find a place to use enums as well (Didn't find something that would fit)
   // Maybe when I hook up navigation or refactor api to be DRY
+
+  // Turn strings into enum for the navigation buttons
 
   const [isSelected, setIsSelected] = React.useState("people");
 
@@ -53,10 +50,13 @@ export default function App() {
     }
   }, [isSelected])
 
-  const [quote, generateQuote] = useRandomQuote();
+  // const [quote, generateQuote] = useRandomQuote();
+
+  const [index, createRandomIndex] = useRandomIndex();
 
   React.useEffect(() => {
-    generateQuote(quotes)
+    // generateQuote(quotes)
+    createRandomIndex()
   }, [renderList])
 
   return (
@@ -66,7 +66,7 @@ export default function App() {
         <View style={styles.body}>
           {renderList}
         </View>
-        <QuoteGenerator quote={quote} />
+        <QuoteGenerator quote={quotes[index]} />
       </ScrollView>
     </View>
   );

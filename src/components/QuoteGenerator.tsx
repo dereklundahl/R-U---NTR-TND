@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { useRandomQuote } from '../hooks/util';
+import { useRandomQuote } from '../hooks/generateQuote';
 
 export const quotes: string[] = [
     "",

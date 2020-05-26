@@ -7,6 +7,8 @@ export interface NavBarProps {
     isSelected: string
 }
 
+// create object with values as strings
+
 const NavBar: React.FC<NavBarProps> = ({ setCategory, isSelected }) => {
 
     // Not sure if this makes sense here but I thought using tuples would be good
@@ -58,7 +60,6 @@ const Styles = StyleSheet.create({
     NotSelected: {
         fontWeight: "normal",
         color: "#ffffff"
-
     }
 })
 

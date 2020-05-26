@@ -13,3 +13,15 @@ export const useRandomQuote = (): [string, ([]) => void] => {
         generateQuote
     ]
 }
+
+// The above doesn't work quite as I intended, so this is the second pass
+export const useRandomIndex = (): [number, () => void] => {
+    const [index, setIndex] = React.useState(1);
+    const createRandomIndex = React.useCallback(() => {
+        setIndex(Math.floor((Math.random() * 23) + 1))
+    }, [setIndex])
+    return [
+        index,
+        createRandomIndex
+    ]
+}

@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     },
     header: {
         color: "#ffffff",
-
         fontWeight: "bold",
         textDecorationLine: "underline"
     }
